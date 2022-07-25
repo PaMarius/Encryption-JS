@@ -1,46 +1,62 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="message-box.css" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap"
+      rel="stylesheet"
+    />
     <title>Encryption task</title>
-</head>
-<body>
-    <div class="cipher">Cipher</div>
-    <div class="encryption">
-        <div class="mssg-encr">
-            <div class="info-text">Enter your message here</div>
-            <div></div>
+  </head>
+  <body>
+    <h1 class="cipher">Cipher</h1>
+    <div class="container">
+      <!-- Message container -->
+      <div class="message">
+        <div class="message-box">
+          <input
+            type="input"
+            class="form-field"
+            placeholder="Name"
+            name="name"
+            id="message"
+            required
+          />
+          <label for="name" class="form-label"> Enter your message here </label>
         </div>
-        <div class="secret-code-encr">
-            <div></div>
-            <div></div>
+      </div>
+      <!-- Secret code container -->
+      <div class="secret-code">
+        <div class="secretKey-box">
+          <input
+            type="input"
+            class="form-field"
+            placeholder="Name"
+            name="name"
+            id="secretKey"
+            required
+          />
+          <label for="name" class="form-label">
+            Enter your secret code here
+          </label>
         </div>
-        <div class="encrypted-mssg">
-            <div></div>
-            <div></div>
+        <div class="encrypt-decrypt-bttns">
+          <button class="encrypt-bttn">Encrypt</button>
+          <button class="decrypt-bttn">Decrypt</button>
         </div>
+      </div>
+      <!-- Decrypted message container -->
+      <div class="decrypted">
+        <div class="decrypted-message"></div>
+        <button onclick="copyToClipboard()" class="copy-bttn">Copy text</button>
+      </div>
     </div>
-    <div class="decryption">
-        <div class="mssg-decpr">
-            <div></div>
-            <div></div>
-        </div>
-        <div class="secret-code-decpr">
-            <div></div>
-            <div></div>
-        </div>
-        <div class="decrypted-mssg">
-            <div></div>
-            <div></div>
-        </div>
-    </div>    
-
-
 
     <script src="script.js"></script>
-</body>
+    <script src="encryption.js"></script>
+  </body>
 </html>
