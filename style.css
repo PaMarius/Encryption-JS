@@ -1,0 +1,23 @@
+body {
+    background-color: rgba(33, 5, 60, 0.883);
+}
+
+.cipher {
+    color: white;
+    text-align: center;
+    font-size: 40px;
+}
+
+ /* Encryption */
+.encryption {
+    display: flex;
+}
+
+.info-text {
+    color: white;
+    font-family: 'Roboto';
+    font-size: 20px;
+    text-transform:;
+}
+
+
