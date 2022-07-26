@@ -1,8 +1,11 @@
 const encryptButton = document.querySelector(".encrypt-bttn");
+const decryptButton = document.querySelector(".decrypt-bttn");
 const message = document.getElementById("message");
 const secretKey = document.getElementById("secretKey");
 const decryptedMessage = document.querySelector(".decrypted-message");
 const copyButton = document.querySelector(".copy-bttn");
+
+let encryptedMessage = [0];
 
 encryptButton.addEventListener("click", () => {
   encryptedMessage = [];

@@ -53,8 +53,6 @@ const characters = [
   " ",
 ];
 
-let encryptedMessage = [0];
-
 const encryptMessage = function (message, secretKey) {
   let indexOfSecretKeyInitial = [];
   let indexOfMessage = [];
@@ -104,15 +102,4 @@ const encryptMessage = function (message, secretKey) {
       encryptedMessage.push(characters[finalIndex[i]]);
     }
   }
-
-  console.log(indexOfMessage);
-  console.log(indexOfSecretKey);
-  console.log(finalIndex);
 };
-
-// console.log(
-//   encryptMessage(
-//     "aafadasdasdasdasdzjoaisjudqi7893hnakjhdkjahdkjhaskjhkjac",
-//     "gasdasda"
-//   )
-// );
