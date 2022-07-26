@@ -1,67 +1,12 @@
-const characters = [
-  "A",
-  "B",
-  "C",
-  "D",
-  "E",
-  "F",
-  "G",
-  "H",
-  "I",
-  "J",
-  "K",
-  "L",
-  "M",
-  "N",
-  "O",
-  "P",
-  "Q",
-  "R",
-  "S",
-  "T",
-  "U",
-  "V",
-  "W",
-  "X",
-  "Y",
-  "Z",
-  "0",
-  "1",
-  "2",
-  "3",
-  "4",
-  "5",
-  "6",
-  "7",
-  "8",
-  "9",
-  ".",
-  ",",
-  "?",
-  "!",
-  "'",
-  "_",
-  "-",
-  "&",
-  "@",
-  "#",
-  "$",
-  "%",
-  "*",
-  "(",
-  ")",
-  " ",
-];
-
-const encryptMessage = function (toDecrypt, secretKey) {
+const decryptMessage = function (toDecrypt, secretKey) {
   let indexOfSecretKeyInitial = [];
   let indexOfToDecrypt = [];
   let indexOfSecretKey = [];
   let finalIndex = [];
 
   // Find index for message
-  for (const letter of message) {
-    indexOfMessage.push(characters.indexOf(letter.toUpperCase()));
+  for (const letter of toDecrypt) {
+    indexOfToDecrypt.push(characters.indexOf(letter.toUpperCase()));
   }
 
   // Find index for secretKey
@@ -73,14 +18,18 @@ const encryptMessage = function (toDecrypt, secretKey) {
   // SUM of message's index and secretKey's index
   // --- 1) message.length = secretKey.length OR message.length < secretKey.length
   if (
-    indexOfMessage.length === indexOfSecretKey.length ||
-    indexOfMessage.length < indexOfSecretKey.length
+    indexOfToDecrypt.length === indexOfSecretKey.length ||
+    indexOfToDecrypt.length < indexOfSecretKey.length
   ) {
-    for (let i = 0; i <= indexOfMessage.length - 1; i++) {
-      let sumOfIndex = indexOfMessage[i] + indexOfSecretKey[i];
-      sumOfIndex <= characters.length
-        ? finalIndex.push(sumOfIndex)
-        : finalIndex.push(sumOfIndex - characters.length - 1);
+    for (let i = 0; i <= indexOfToDecrypt.length - 1; i++) {
+      if (indexOfToDecrypt[i] - indexOfSecretKey[i] >= 0) {
+        let diffOfIndex = indexOfToDecrypt[i] - indexOfSecretKey[i];
+        finalIndex.push(diffOfIndex);
+      } else {
+        finalIndex.push(
+          characters.length + indexOfToDecrypt[i] + 1 - indexOfSecretKey[i]
+        );
+      }
     }
     for (let i = 0; i <= finalIndex.length - 1; i++) {
       encryptedMessage.push(characters[finalIndex[i]]);
@@ -89,14 +38,18 @@ const encryptMessage = function (toDecrypt, secretKey) {
 
   // --- 2) message.length > secretKey.length
   else {
-    while (indexOfMessage.length > indexOfSecretKey.length) {
+    while (indexOfToDecrypt.length > indexOfSecretKey.length) {
       indexOfSecretKey.push(...indexOfSecretKeyInitial);
     }
-    for (let i = 0; i <= indexOfMessage.length - 1; i++) {
-      let sumOfIndex = indexOfMessage[i] + indexOfSecretKey[i];
-      sumOfIndex <= characters.length
-        ? finalIndex.push(sumOfIndex)
-        : finalIndex.push(sumOfIndex - characters.length - 1);
+    for (let i = 0; i <= indexOfToDecrypt.length - 1; i++) {
+      if (indexOfToDecrypt[i] - indexOfSecretKey[i] >= 0) {
+        let diffOfIndex = indexOfToDecrypt[i] - indexOfSecretKey[i];
+        finalIndex.push(diffOfIndex);
+      } else {
+        finalIndex.push(
+          characters.length + indexOfToDecrypt[i] + 1 - indexOfSecretKey[i]
+        );
+      }
     }
     for (let i = 0; i <= finalIndex.length - 1; i++) {
       encryptedMessage.push(characters[finalIndex[i]]);
